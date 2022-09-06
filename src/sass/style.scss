@@ -1,0 +1,16 @@
+@import 'base/font';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    position: relative;
+}
+
+@import 'blocks/header';
+@import 'blocks/_category';
+
+
+@import 'blocks/media';
