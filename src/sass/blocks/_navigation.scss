@@ -1,0 +1,32 @@
+.navigation {
+    max-width: 1920px;
+    padding-top: 68px;
+    padding-left: 90px;
+    &__list {
+        display: flex;
+        align-items: center;
+        height: 60px;
+        list-style-type: none;
+        &-item {
+            &:not(:last-child):after {
+                content: '';
+                display: inline-block;
+                background: url(../icons/navigation/arrow-right-bold.svg) no-repeat center center;
+                background-size: contain;
+                width: 30px;
+                height: 10px;
+            }
+        }
+        &-link {
+            font-size: 14px;
+            font-weight: 400;
+            font-family: 'Open Sans', sans-serif;
+            color: #000;
+            text-decoration: none;
+            &_not-active {
+                color: #8e8d8d;
+                pointer-events: none;
+            }
+        }
+    }
+}
