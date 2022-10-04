@@ -8,7 +8,7 @@
         justify-content: center;
         align-items: flex-start;
         padding-top: 70px;
-        margin-left: 50px;
+        padding-left: 3.125rem;
     }
     &__mini-slider {
         width: 98px;
@@ -38,8 +38,8 @@
         }
     }
     &__main-slider {
-        width: 550px;
-        height: 550px;
+        width: 34.375rem;
+        height: 34.375rem;
         &-item {
             display: none;
             max-width: 100%;
@@ -50,8 +50,8 @@
             }
         }
         &-img {
-            width: 500px;
-            height: 500px;
+            width: 100%;
+            height: 100%;
             &:hover {
                 cursor: pointer;
             }
@@ -63,7 +63,7 @@
     }
     &__column {
         max-width: 23.563rem;
-        margin-left: 68px;
+        margin-left: 4.25rem;
     }
     &__main {
         margin-top: 30px;
@@ -99,6 +99,9 @@
         &-article {
             font-size: 0.85rem;
             font-weight: 200;
+        }
+        &_mobile {
+            display: none;
         }
     }
     &__colors {
@@ -324,7 +327,7 @@
     &__info {
         margin-top: 2rem;
     }
-    &__delivery, &__availability {
+    &__delivery, &__availability, &__table-size {
         display: block;
         margin-bottom: 15px;
         font-size: .95rem;
@@ -332,5 +335,27 @@
         letter-spacing: .02rem;
         color: #000;
         text-transform: uppercase;
+    }
+    &__table-size {
+        display: none;
+    }
+    &__table-size_desktop {
+        display: inline;
+        position: relative;
+        margin-bottom: 0;
+        margin-left: 8.5rem;
+        font-size: .7rem;
+        font-weight: 600;
+        text-decoration: none;
+        &::after {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: 140px;
+            width: 17px;
+            height: 17px;
+            background-image: url('../../assets/icons/sizes/ruler.png');
+            background-size: cover;
+        }
     }
 }
