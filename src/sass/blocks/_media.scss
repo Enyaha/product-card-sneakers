@@ -81,6 +81,11 @@
             }
         }
     }
+    .advantages {
+        &__item {
+            font-size: .7rem;
+        }
+    }
 }
 @media (max-width: 768px) {
     .header {
@@ -243,6 +248,30 @@
         }
         &__main-title {
             font-size: 1.2rem;
+        }
+    }
+    .advantages {
+        &__item {
+            flex-direction: column;
+            font-size: .4rem;
+            margin: 0 10px;
+            span {
+                margin-top: 10px;
+                text-align: center;
+            }
+        }
+        &__truk {
+            width: 45px;
+            height: 45px;
+        }
+        &__cup {
+            width: 40px;
+            height: 40px;
+        }
+        &__arrow {
+            width: 30px;
+            height: 30px;
+            margin-top: 11px;
         }
     }
 }
