@@ -274,4 +274,25 @@
             margin-top: 11px;
         }
     }
+    .title {
+        font-size: 1rem;
+    }
+    .product-info {
+        padding: 1.7rem 1rem 1.7rem 1rem;
+        font-size: .7rem;
+        line-height: 1.7rem;
+        &__descr {
+            margin-top: 1.5rem;
+        }
+        &__title, &__list {
+            margin-top: .8rem;
+        }
+        &__list-item {
+            padding-left: 1.1rem;
+            &::before {
+                left: 2px;
+                top: 12px
+            }
+        }
+    }
 }
