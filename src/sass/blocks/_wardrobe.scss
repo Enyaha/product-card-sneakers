@@ -1,0 +1,83 @@
+.wardrobe {
+    padding: 2.4375rem 1rem 2.625rem 1rem;
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        max-width: 1180px;
+        margin-top: 2.5rem;
+    }
+    &__lifestyle {
+        position: relative;
+        width: 394px;
+        height: 408px;
+        cursor: pointer;
+        &-cap {
+            position: absolute;
+            left: 205px;
+            width: 78px;
+            z-index: 2;
+        }
+        &-hoodie {
+            position: absolute;
+            top: 82px;
+            left: 137px;
+            width: 107px;
+            z-index: 1;
+        }
+        &-t-shirt {
+            position: absolute;
+            top: 82px;
+            left: 137px;
+            width: 107px;
+            z-index: 1;
+        }
+        &-bag {
+            position: absolute;
+            top: 204px;
+            left: 59px;
+            width: 102px;
+        }
+        &-backpack {
+            position: absolute;
+            top: 204px;
+            left: 59px;
+            width: 80px;
+        }
+        &-shorts {
+            position: absolute;
+            top: 196px;
+            left: 216px;
+            width: 91px;
+        }
+        &-pants {
+            position: absolute;
+            top: 196px;
+            left: 216px;
+            width: 70px;
+        }
+        &-shoes {
+            position: absolute;
+            top: 350px;
+            left: 106px;
+            width: 90px;
+        }
+    }
+    &__button {
+        display: block;
+        margin: 0 auto;
+        margin-top: 8px;
+        width: 90px;
+        height: 35px;
+        background-color: #fff;
+        border: 1px solid #000;
+        color: #000;
+        text-transform: uppercase;
+        font-weight: 600;
+        cursor: pointer;
+        &:hover {
+            background-color: #d3d3d3;;
+        }
+    }
+}

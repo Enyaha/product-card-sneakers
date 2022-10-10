@@ -86,6 +86,11 @@
             font-size: .7rem;
         }
     }
+    .wardrobe {
+        &__item:nth-child(2) {
+            display: none;
+        }
+    }
 }
 @media (max-width: 768px) {
     .header {
@@ -292,6 +297,66 @@
             &::before {
                 left: 2px;
                 top: 12px
+            }
+        }
+    }
+    .wardrobe {
+        padding: 1.7rem 1rem 1.7rem 1rem;
+        &__item {
+            width: 274px;
+        }
+        &__lifestyle {
+            width: 100%;
+            height: 300px;
+            &-cap {
+                position: absolute;
+                left: 142px;
+                width: 55px;
+                z-index: 2;
+            }
+            &-hoodie {
+                position: absolute;
+                top: 58px;
+                left: 96px;
+                width: 74px;
+                z-index: 1;
+            }
+            &-t-shirt {
+                position: absolute;
+                top: 82px;
+                left: 137px;
+                width: 107px;
+                z-index: 1;
+            }
+            &-bag {
+                position: absolute;
+                top: 124px;
+                left: 41px;
+                width: 71px;
+            }
+            &-backpack {
+                position: absolute;
+                top: 204px;
+                left: 59px;
+                width: 80px;
+            }
+            &-shorts {
+                position: absolute;
+                top: 139px;
+                left: 150px;
+                width: 63px;
+            }
+            &-pants {
+                position: absolute;
+                top: 196px;
+                left: 216px;
+                width: 70px;
+            }
+            &-shoes {
+                position: absolute;
+                top: 250px;
+                left: 74px;
+                width: 62px;
             }
         }
     }
