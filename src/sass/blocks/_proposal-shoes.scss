@@ -1,0 +1,37 @@
+.proposal-shoes {
+    padding: 2.5rem 1rem;
+    font-family: 'Open Sans', sans-serif;
+    color: #000;
+    font-size: .9rem;
+    line-height: 1.6rem;
+    font-weight: 400;
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 1180px;
+        margin: 0 auto;
+        margin-top: 2rem;
+    }
+    &__item {
+        width: 20%;
+        height: auto;
+        padding: 15px 10px;
+        text-align: center;
+        border: 1px solid rgba(0, 0, 0, 0);
+        cursor: pointer;
+        &-name {
+            height: 71px;
+        }
+        &-price {
+            margin-top: 10px;
+            font-weight: 600;
+        }
+        &:hover {
+            border: 1px solid rgba(0, 0, 0, 0.2);
+        }
+    }
+    &__img {
+        width: 100%;
+    }
+}

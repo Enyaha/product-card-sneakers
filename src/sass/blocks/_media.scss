@@ -47,6 +47,11 @@
             margin-left: 0;
         }
     }
+    .proposal-shoes {
+        &__wrapper {
+            width: 100%;
+        }
+    }
 }
 @media (max-width: 992px) {
     .product {
@@ -89,6 +94,13 @@
     .wardrobe {
         &__item:nth-child(2) {
             display: none;
+        }
+    }
+    .proposal-shoes {
+        &__item {
+            &-name {
+                font-size: .75rem;
+            }
         }
     }
 }
@@ -240,7 +252,14 @@
         &__table-size_desktop {
             display: none;
         }
-        
+    }
+    .proposal-shoes {
+        &__item {
+            width: 25%;
+            &:nth-child(5) {
+                display: none;
+            }
+        }
     }
 }
 @media (max-width: 576px) {
@@ -357,6 +376,17 @@
                 top: 250px;
                 left: 74px;
                 width: 62px;
+            }
+        }
+    }
+    .proposal-shoes {
+        &__wrapper {
+            justify-content: center;
+        }
+        &__item {
+            width: 50%;
+            &:not(:nth-child(1)) {
+                display: none;
             }
         }
     }
