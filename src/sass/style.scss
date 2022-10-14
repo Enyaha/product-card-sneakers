@@ -10,6 +10,7 @@ body {
 }
 
 @import 'blocks/header';
+@import 'blocks/logo';
 @import 'blocks/category';
 @import 'blocks/navigation';
 @import 'blocks/product';
@@ -20,5 +21,6 @@ body {
 @import 'blocks/_proposal-shoes';
 @import 'blocks/delivery';
 @import 'blocks/divider';
+@import 'blocks/footer';
 
 @import 'blocks/media';

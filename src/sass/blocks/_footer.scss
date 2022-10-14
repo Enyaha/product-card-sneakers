@@ -1,0 +1,163 @@
+.footer {
+    background-color: rgb(24, 24, 24);
+    padding: 90px 0 35px 0;
+    &__wrapper {
+        margin: 0 auto;
+        max-width: 1345px;
+    }
+    &__nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-top: 3.75rem;
+    }
+    &__menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    &__section {
+        width: 443px;
+        border-top: 2px solid #fff;
+        margin-right: 8px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: .9rem;
+        font-weight: 300;
+    }
+    &__title {
+        margin-top: 2rem;
+        color: #fff;
+    }
+    &__column {
+        display: inline-block;
+        margin-top: 1rem;
+        margin-right: 0.3rem;
+        width: calc(50% - 8px);
+        vertical-align: text-top;
+    }
+    &__link {
+        display: block;
+        color: #acacac;
+        text-decoration: none;
+        line-height: 1.7rem;
+        &:hover {
+            color: #fff;
+        }
+    }
+    &__social {
+        width: 328px;
+        padding-top: 4rem;
+        border-top: 2px solid #fff;
+        &-items {
+            display: flex;
+            transform: translateX(-16px);
+        }
+        &-img {
+            width: 64px;
+            height: 64px;
+            padding: 16px;
+            cursor: pointer;
+        }
+    }
+    &__trac {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 6rem;
+        svg {
+            cursor: pointer;
+        }
+        &-link {
+            position: relative;
+            margin-left: 2rem;
+            font-family: 'Open Sans', sans-serif;
+            font-size: .75rem;
+            font-weight: 600;
+            line-height: 1.3rem;
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+            &::before {
+                content: "";
+                position: absolute;
+                top: 100%;
+                width: 100%;
+                left: 0px;
+                height: 2px;
+                background-color: rgb(174, 148, 109);
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                top: 100%;
+                width: 0px;
+                right: 0px;
+                height: 2px;
+                background-color: #fff;
+                transition: all 0.3s;
+            }
+            &:hover::after {
+                width: 100%;
+                left: 0px;
+            }
+        }
+    }
+    &__divider {
+        width: auto;
+        height: 1px;
+        margin-top: 2rem;
+        background-color: rgba(172, 172, 172, 0.17);
+    }
+    &__conditions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2rem;
+        &-link {
+            font-family: 'Open Sans', sans-serif;
+            color: #acacac;
+            text-decoration: none;
+            font-size: .9rem;
+            font-weight: 300;
+            &:hover {
+                color: #fff;
+            }
+
+        }
+    }
+    &__language {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 256px;
+        padding: .8rem .4rem .6rem .9rem;
+        border: 1px solid rgba(172, 172, 172, 0.28);
+        transition: all .3s;
+        cursor: pointer;
+        &-row {
+            display: flex;
+            align-items: center;
+        }
+        &-img {
+            width: 20px;
+        }
+        &:hover {
+            border: 1px solid rgba(172, 172, 172, 0.17);
+        }
+        &-text {
+            margin-left: 14px;
+            text-transform: uppercase;
+            font-family: 'Open Sans', sans-serif;
+            font-size: .7rem;
+            font-weight: 600;
+            color: #fff;
+        }
+    }
+    &__copyright {
+        font-family: 'Open Sans', sans-serif;
+        font-size: .9rem;
+        font-weight: 300;
+        color: #fff;
+        letter-spacing: .01rem;
+    }
+}

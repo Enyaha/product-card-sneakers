@@ -1,15 +1,15 @@
 @media (max-width: 1200px) {
+    .logo {
+        width: 60px;
+        height: 60px;
+        svg {
+            width: 39px;
+        }
+    }
     .header {
         height: 60px;
         &__wrapper {
             padding: 0 30px;
-        }
-        &__logo {
-            width: 60px;
-            height: 60px;
-            svg {
-                width: 39px;
-            }
         }
         &__nav {
             display: none;
