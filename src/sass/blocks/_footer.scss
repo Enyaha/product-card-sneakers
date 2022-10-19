@@ -1,6 +1,6 @@
 .footer {
     background-color: rgb(24, 24, 24);
-    padding: 90px 0 35px 0;
+    padding: 90px 16px 35px 16px;
     &__wrapper {
         margin: 0 auto;
         max-width: 1345px;
@@ -24,13 +24,23 @@
         font-size: .9rem;
         font-weight: 300;
     }
+    &__block {
+        margin-top: 1rem;
+    }
     &__title {
-        margin-top: 2rem;
-        color: #fff;
+        padding-top: 2rem;
+        h3 {
+            color: #fff;
+            font-family: 'Open Sans', sans-serif;
+            font-size: .9rem;
+            font-weight: 300;
+        }
+    }
+    &__arrow {
+        display: none;
     }
     &__column {
         display: inline-block;
-        margin-top: 1rem;
         margin-right: 0.3rem;
         width: calc(50% - 8px);
         vertical-align: text-top;

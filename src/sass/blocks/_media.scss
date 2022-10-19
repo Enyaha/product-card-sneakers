@@ -66,6 +66,25 @@
             }
         }
     }
+    .footer {
+        padding: 90px 30px 35px 30px;
+        &__section {
+            width: 248px;
+        }
+        &__column {
+            display: block;
+        }
+        &__social {
+            &-items {
+                transform: translateX(-8px);
+            }
+            &-img {
+                width: 48px;
+                height: 48px;
+                padding: 8px;
+            }
+        }
+    }
 }
 @media (max-width: 992px) {
     .product {
@@ -115,6 +134,25 @@
             &-name {
                 font-size: .75rem;
             }
+        }
+    }
+    .footer {
+        padding: 70px 30px 35px 30px;
+        &__nav {
+            margin-top: 50px;
+        }
+        &__section {
+            width: 187px;
+            font-size: .8rem;
+        }
+        &__column {
+            width: 100%;
+        }
+        &__social {
+            width: 240px;
+        }
+        &__divider {
+            margin-top: 65px;
         }
     }
 }
@@ -289,6 +327,76 @@
             }
         }
     }
+    .footer .logo {
+        display: none;
+    }
+    .footer {
+        &__nav {
+            display: block;
+            margin-top: 0;
+            border-top: 2px solid #fff;
+        }
+        &__menu {
+            display: block;
+        }
+        &__section, &__social {
+            border-top: none;
+        }
+        &__section {
+            margin-right: 0;
+            width: 100%;
+        }
+        &__block {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(172, 172, 172, 0.17);
+        }
+        &__column {
+            width: 50%;
+        }
+        &__link {
+            padding: 3px 0;
+        }
+        &__social {
+            width: 100%;
+            padding-top: 50px;
+        }
+        &__social-items {
+            justify-content: center;
+            gap: 7px;
+        }
+        &__trac {
+            margin-top: 50px;
+        }
+        &__divider {
+            margin-top: 50px;
+        }
+        &__conditions {
+            flex-direction: column;
+            align-items: flex-start;
+            &-link {
+                margin-top: 12px;
+            }
+        }
+        &__language {
+            width: 100%;
+        }
+        &__copyright {
+            margin-top: 30px;
+        }
+        &__arrow {
+            display: block;
+            width: 25px;
+        }
+        &__title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+        }
+    }
 }
 @media (max-width: 576px) {
     .navigation {
@@ -429,6 +537,14 @@
             svg {
                 right: 15px;
             }
+        }
+    }
+    .footer {
+        &__block {
+            display: block;
+        }
+        &__trac-link {
+            font-size: .67rem;
         }
     }
 }
