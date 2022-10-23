@@ -96,10 +96,14 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_changelinkcolor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/changelinkcolor */ "./src/js/modules/changelinkcolor.js");
+/* harmony import */ var _modules_showcategory__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/showcategory */ "./src/js/modules/showcategory.js");
+
 
 window.addEventListener('DOMContentLoaded', () => {
   const linkColor = new _modules_changelinkcolor__WEBPACK_IMPORTED_MODULE_0__["default"]('.header__menu-item');
   linkColor.init();
+  const showCategoryBlock = new _modules_showcategory__WEBPACK_IMPORTED_MODULE_1__["default"]('.header__menu-item', '.category__block');
+  showCategoryBlock.init();
 });
 
 /***/ }),
@@ -139,6 +143,47 @@ class ChangeLinkColor {
       });
       link.addEventListener('mouseleave', () => {
         this.originalLinkСolor();
+      });
+    });
+  }
+
+}
+
+/***/ }),
+
+/***/ "./src/js/modules/showcategory.js":
+/*!****************************************!*\
+  !*** ./src/js/modules/showcategory.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ShowCategory; });
+class ShowCategory {
+  constructor(triggers, category) {
+    this.link = document.querySelectorAll(triggers);
+    this.blockCategory = document.querySelectorAll(category);
+  }
+
+  init() {
+    this.link.forEach(link => {
+      link.addEventListener('mouseenter', event => {
+        const length = this.link.length - 1;
+
+        for (let i = 0; i < length; i++) {
+          this.blockCategory[i].style.display = 'none';
+
+          if (event.target.getAttribute('data-category') == this.blockCategory[i].getAttribute('data-category')) {
+            this.blockCategory[i].style.display = 'flex';
+          }
+        }
+      });
+    });
+    this.blockCategory.forEach(elem => {
+      elem.addEventListener('mouseleave', () => {
+        elem.style.display = 'none';
       });
     });
   }
