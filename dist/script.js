@@ -95,19 +95,19 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_category__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/category */ "./src/js/modules/category.js");
+/* harmony import */ var _modules_changelinkcolor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/changelinkcolor */ "./src/js/modules/changelinkcolor.js");
 
 window.addEventListener('DOMContentLoaded', () => {
-  const linkColor = new _modules_category__WEBPACK_IMPORTED_MODULE_0__["default"]('.header__menu-item', '.category__block');
+  const linkColor = new _modules_changelinkcolor__WEBPACK_IMPORTED_MODULE_0__["default"]('.header__menu-item');
   linkColor.init();
 });
 
 /***/ }),
 
-/***/ "./src/js/modules/category.js":
-/*!************************************!*\
-  !*** ./src/js/modules/category.js ***!
-  \************************************/
+/***/ "./src/js/modules/changelinkcolor.js":
+/*!*******************************************!*\
+  !*** ./src/js/modules/changelinkcolor.js ***!
+  \*******************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 

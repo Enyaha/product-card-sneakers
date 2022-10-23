@@ -19,7 +19,7 @@ export default class ChangeLinkColor {
 
     init() {
         this.link.forEach(link => {
-            link.addEventListener('mouseenter', event => {
+            link.addEventListener('mouseenter', (event) => {
                 this.transformLinkColor(event.target);
             });
 
