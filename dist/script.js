@@ -95,54 +95,126 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_changelinkcolor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/changelinkcolor */ "./src/js/modules/changelinkcolor.js");
-/* harmony import */ var _modules_showcategory__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/showcategory */ "./src/js/modules/showcategory.js");
+/* harmony import */ var _modules_changecolor_bordertopcolor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/changecolor/bordertopcolor */ "./src/js/modules/changecolor/bordertopcolor.js");
+/* harmony import */ var _modules_changecolor_linkcolor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/changecolor/linkcolor */ "./src/js/modules/changecolor/linkcolor.js");
+/* harmony import */ var _modules_showcategory__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/showcategory */ "./src/js/modules/showcategory.js");
+
 
 
 window.addEventListener('DOMContentLoaded', () => {
-  const linkColor = new _modules_changelinkcolor__WEBPACK_IMPORTED_MODULE_0__["default"]('.header__menu-item');
-  linkColor.init();
-  const showCategoryBlock = new _modules_showcategory__WEBPACK_IMPORTED_MODULE_1__["default"]('.header__menu-item', '.category__block');
+  const changelinkColor = new _modules_changecolor_linkcolor__WEBPACK_IMPORTED_MODULE_1__["default"]('.header__menu-item', 'rgb(255, 255, 255)', 'rgb(128, 128, 128)');
+  changelinkColor.init();
+  const changeBorderTopColor = new _modules_changecolor_bordertopcolor__WEBPACK_IMPORTED_MODULE_0__["default"]('.category__item', '2px solid rgb(0, 0, 0)', '2px solid rgba(128, 128, 128, .2');
+  changeBorderTopColor.init();
+  const showCategoryBlock = new _modules_showcategory__WEBPACK_IMPORTED_MODULE_2__["default"]('.header__menu-item', '.category__block');
   showCategoryBlock.init();
 });
 
 /***/ }),
 
-/***/ "./src/js/modules/changelinkcolor.js":
-/*!*******************************************!*\
-  !*** ./src/js/modules/changelinkcolor.js ***!
-  \*******************************************/
+/***/ "./src/js/modules/changecolor/bordertopcolor.js":
+/*!******************************************************!*\
+  !*** ./src/js/modules/changecolor/bordertopcolor.js ***!
+  \******************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ChangeLinkColor; });
-class ChangeLinkColor {
-  constructor(triggers) {
-    this.link = document.querySelectorAll(triggers);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return BorderTopColor; });
+/* harmony import */ var _changecolor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./changecolor */ "./src/js/modules/changecolor/changecolor.js");
+
+class BorderTopColor extends _changecolor__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor(triggerElem, colorBefore, colorAfter) {
+    super(triggerElem, colorBefore, colorAfter);
   }
 
-  transformLinkColor(elem) {
-    this.link.forEach(link => {
-      link.style.color = 'rgb(128, 128, 128)';
+  transformColor(e) {
+    this.triggerElem.forEach(elem => {
+      elem.style.borderTop = this.colorAfter;
     });
-    elem.style.color = 'rgb(255, 255, 255)';
+    e.target.style.borderTop = this.colorBefore;
   }
 
-  originalLinkСolor() {
-    this.link.forEach(link => {
-      link.style.color = 'rgb(255, 255, 255)';
+  originalСolor() {
+    this.triggerElem.forEach(elem => {
+      elem.style.borderTop = this.colorBefore;
     });
   }
 
   init() {
-    this.link.forEach(link => {
-      link.addEventListener('mouseenter', event => {
-        this.transformLinkColor(event.target);
+    this.triggerElem.forEach(elem => {
+      elem.addEventListener('mouseenter', elem => {
+        this.transformColor(elem);
       });
-      link.addEventListener('mouseleave', () => {
-        this.originalLinkСolor();
+      elem.addEventListener('mouseleave', () => {
+        this.originalСolor();
+      });
+    });
+  }
+
+}
+
+/***/ }),
+
+/***/ "./src/js/modules/changecolor/changecolor.js":
+/*!***************************************************!*\
+  !*** ./src/js/modules/changecolor/changecolor.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ChangeColor; });
+class ChangeColor {
+  constructor(triggers, colorBefore, colorAfter) {
+    this.triggerElem = document.querySelectorAll(triggers);
+    this.colorBefore = colorBefore;
+    this.colorAfter = colorAfter;
+  }
+
+}
+
+/***/ }),
+
+/***/ "./src/js/modules/changecolor/linkcolor.js":
+/*!*************************************************!*\
+  !*** ./src/js/modules/changecolor/linkcolor.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return LinkColor; });
+/* harmony import */ var _changecolor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./changecolor */ "./src/js/modules/changecolor/changecolor.js");
+
+class LinkColor extends _changecolor__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor(triggerElem, colorBefore, colorAfter) {
+    super(triggerElem, colorBefore, colorAfter);
+  }
+
+  transformColor(e) {
+    this.triggerElem.forEach(elem => {
+      elem.style.color = this.colorAfter;
+    });
+    e.target.style.color = this.colorBefore;
+  }
+
+  originalСolor() {
+    this.triggerElem.forEach(elem => {
+      elem.style.color = this.colorBefore;
+    });
+  }
+
+  init() {
+    this.triggerElem.forEach(elem => {
+      elem.addEventListener('mouseenter', elem => {
+        this.transformColor(elem);
+      });
+      elem.addEventListener('mouseleave', () => {
+        this.originalСolor();
       });
     });
   }
