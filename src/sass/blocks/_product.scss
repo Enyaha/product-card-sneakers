@@ -134,6 +134,7 @@
     &__add {
         margin-top: 1.5rem;
         &-form {
+            position: relative;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -156,7 +157,7 @@
             color: #9a9a9a;
         }
         &-select {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 600;
         }
         &-arrow {
@@ -165,6 +166,13 @@
             top: 50%;
             right: 1rem;
             transform: translateY(-50%);
+            transform-origin: 50% 25%;
+            transition: all .4;
+            &_active {
+                transition: all .4;
+                transform: rotate(180deg);
+                transform-origin: 50% 25%;
+            }
         }
         &-stock {
             display: flex;
@@ -182,6 +190,73 @@
                 font-weight: 200;
                 letter-spacing: .06rem;
                 color: #9a9a9a;
+            }
+        }
+    }
+    &__size {
+        position: absolute;
+        top: 47px;
+        left: 0px;
+        display: none;
+        flex-wrap: wrap;
+        width: 272px;
+        background-color: #fff;
+        border-top: 1px solid #e8e8e8;
+        border-left: 1px solid #e8e8e8;
+        z-index: 1;
+        &_active {
+            display: flex;
+        }
+        &-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 90px;
+            height: 49px;
+            font-size: 12px;
+            font-weight: 400;
+            font-family: 'Open Sans', sans-serif;
+            color: #000;
+            cursor: pointer;
+            border-bottom: 1px solid #e8e8e8;
+            border-right: 1px solid #e8e8e8;
+            &:hover {
+                background-color: #f6f6f6;
+            }
+        }
+    }
+    &__count {
+        position: absolute;
+        top: 47px;
+        right: 0px;
+        display: none;
+        flex-direction: column;
+        width: 181px;
+        background-color: #fff;
+        border-top: 1px solid #e8e8e8;
+        border-left: 1px solid #e8e8e8;
+        z-index: 1;
+        &_active {
+            display: flex;
+        }
+        &-item {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center;
+            height: 49px;
+            padding-left: 16px;
+            font-size: 12px;
+            font-weight: 400;
+            font-family: 'Open Sans', sans-serif;
+            color: #000;
+            cursor: pointer;
+            border-bottom: 1px solid #e8e8e8;
+            border-right: 1px solid #e8e8e8;
+            &:hover {
+                background-color: #f6f6f6;
+                font-weight: 600;
             }
         }
     }

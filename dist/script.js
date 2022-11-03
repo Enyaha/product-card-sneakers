@@ -98,6 +98,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_changecolor_bordertopcolor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/changecolor/bordertopcolor */ "./src/js/modules/changecolor/bordertopcolor.js");
 /* harmony import */ var _modules_changecolor_linkcolor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/changecolor/linkcolor */ "./src/js/modules/changecolor/linkcolor.js");
 /* harmony import */ var _modules_showcategory__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/showcategory */ "./src/js/modules/showcategory.js");
+/* harmony import */ var _modules_selectedproduct__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/selectedproduct */ "./src/js/modules/selectedproduct.js");
+
 
 
 
@@ -108,6 +110,28 @@ window.addEventListener('DOMContentLoaded', () => {
   changeBorderTopColor.init();
   const showCategoryBlock = new _modules_showcategory__WEBPACK_IMPORTED_MODULE_2__["default"]('.header__menu-item', '.category__block');
   showCategoryBlock.init();
+  const selectSize = new _modules_selectedproduct__WEBPACK_IMPORTED_MODULE_3__["default"]({
+    trigger: '.product__add-size',
+    arrow: '.product__add-arrow',
+    blockOptions: '.product__size',
+    arrowActiveClass: 'product__add-arrow_active',
+    blockOptionsActiveClass: 'product__size_active',
+    triggerItems: '.product__size-item',
+    elementText: '.product__add-select-size',
+    index: 0
+  });
+  selectSize.init();
+  const selectQuantity = new _modules_selectedproduct__WEBPACK_IMPORTED_MODULE_3__["default"]({
+    trigger: '.product__add-count',
+    arrow: '.product__add-arrow',
+    blockOptions: '.product__count',
+    arrowActiveClass: 'product__add-arrow_active',
+    blockOptionsActiveClass: 'product__count_active',
+    triggerItems: '.product__count-item',
+    elementText: '.product__add-select-count',
+    index: 1
+  });
+  selectQuantity.init();
 });
 
 /***/ }),
@@ -215,6 +239,67 @@ class LinkColor extends _changecolor__WEBPACK_IMPORTED_MODULE_0__["default"] {
       });
       elem.addEventListener('mouseleave', () => {
         this.originalСolor();
+      });
+    });
+  }
+
+}
+
+/***/ }),
+
+/***/ "./src/js/modules/selectedproduct.js":
+/*!*******************************************!*\
+  !*** ./src/js/modules/selectedproduct.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SelectedProduct; });
+class SelectedProduct {
+  constructor({
+    trigger,
+    arrow,
+    blockOptions,
+    arrowActiveClass = '',
+    blockOptionsActiveClass = '',
+    triggerItems,
+    elementText,
+    index = null
+  }) {
+    this.trigger = document.querySelector(trigger);
+    this.arrow = document.querySelectorAll(arrow);
+    this.blockOptions = document.querySelector(blockOptions);
+    this.arrowActiveClass = arrowActiveClass;
+    this.blockOptionsActiveClass = blockOptionsActiveClass;
+    this.triggerItems = document.querySelectorAll(triggerItems);
+    this.elementText = document.querySelector(elementText);
+    this.index = index;
+  }
+
+  showBlockOptions() {
+    this.arrow[this.index].classList.add(this.arrowActiveClass);
+    this.blockOptions.classList.add(this.blockOptionsActiveClass);
+  }
+
+  hideBlockOptions() {
+    this.arrow[this.index].classList.remove(this.arrowActiveClass);
+    this.blockOptions.classList.remove(this.blockOptionsActiveClass);
+  }
+
+  init() {
+    this.trigger.addEventListener('click', event => {
+      if (getComputedStyle(this.blockOptions).display == 'none') {
+        this.showBlockOptions();
+      } else if (getComputedStyle(this.blockOptions).display == 'flex') {
+        this.hideBlockOptions();
+      }
+    });
+    this.triggerItems.forEach(item => {
+      item.addEventListener('click', event => {
+        this.hideBlockOptions();
+        this.elementText.textContent = event.target.textContent;
       });
     });
   }
