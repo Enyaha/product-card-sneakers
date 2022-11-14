@@ -18,28 +18,11 @@ window.addEventListener('DOMContentLoaded', () => {
     showCategoryBlock.init();
 
     const selectSize = new SelectedProduct({
-        trigger: '.product__add-size', 
+        trigger: '.product__add-form-item', 
         arrow: '.product__add-arrow', 
-        blockOptions: '.product__size', 
         arrowActiveClass: 'product__add-arrow_active', 
-        blockOptionsActiveClass: 'product__size_active',
-        triggerItems: '.product__size-item',
-        elementText: '.product__add-select-size',
-        index: 0,
+        triggerItems: '.product__selected-item',
     });
 
     selectSize.init();
-
-    const selectQuantity = new SelectedProduct({
-        trigger: '.product__add-count', 
-        arrow: '.product__add-arrow', 
-        blockOptions: '.product__count', 
-        arrowActiveClass: 'product__add-arrow_active', 
-        blockOptionsActiveClass: 'product__count_active',
-        triggerItems: '.product__count-item',
-        elementText: '.product__add-select-count',
-        index: 1,
-    });
-
-    selectQuantity.init();
 });

@@ -111,27 +111,12 @@ window.addEventListener('DOMContentLoaded', () => {
   const showCategoryBlock = new _modules_showcategory__WEBPACK_IMPORTED_MODULE_2__["default"]('.header__menu-item', '.category__block');
   showCategoryBlock.init();
   const selectSize = new _modules_selectedproduct__WEBPACK_IMPORTED_MODULE_3__["default"]({
-    trigger: '.product__add-size',
+    trigger: '.product__add-form-item',
     arrow: '.product__add-arrow',
-    blockOptions: '.product__size',
     arrowActiveClass: 'product__add-arrow_active',
-    blockOptionsActiveClass: 'product__size_active',
-    triggerItems: '.product__size-item',
-    elementText: '.product__add-select-size',
-    index: 0
+    triggerItems: '.product__selected-item'
   });
   selectSize.init();
-  const selectQuantity = new _modules_selectedproduct__WEBPACK_IMPORTED_MODULE_3__["default"]({
-    trigger: '.product__add-count',
-    arrow: '.product__add-arrow',
-    blockOptions: '.product__count',
-    arrowActiveClass: 'product__add-arrow_active',
-    blockOptionsActiveClass: 'product__count_active',
-    triggerItems: '.product__count-item',
-    elementText: '.product__add-select-count',
-    index: 1
-  });
-  selectQuantity.init();
 });
 
 /***/ }),
@@ -261,45 +246,33 @@ class SelectedProduct {
   constructor({
     trigger,
     arrow,
-    blockOptions,
     arrowActiveClass = '',
-    blockOptionsActiveClass = '',
-    triggerItems,
-    elementText,
-    index = null
+    triggerItems
   }) {
-    this.trigger = document.querySelector(trigger);
+    this.trigger = document.querySelectorAll(trigger);
     this.arrow = document.querySelectorAll(arrow);
-    this.blockOptions = document.querySelector(blockOptions);
     this.arrowActiveClass = arrowActiveClass;
-    this.blockOptionsActiveClass = blockOptionsActiveClass;
     this.triggerItems = document.querySelectorAll(triggerItems);
-    this.elementText = document.querySelector(elementText);
-    this.index = index;
-  }
-
-  showBlockOptions() {
-    this.arrow[this.index].classList.add(this.arrowActiveClass);
-    this.blockOptions.classList.add(this.blockOptionsActiveClass);
-  }
-
-  hideBlockOptions() {
-    this.arrow[this.index].classList.remove(this.arrowActiveClass);
-    this.blockOptions.classList.remove(this.blockOptionsActiveClass);
   }
 
   init() {
-    this.trigger.addEventListener('click', event => {
-      if (getComputedStyle(this.blockOptions).display == 'none') {
-        this.showBlockOptions();
-      } else if (getComputedStyle(this.blockOptions).display == 'flex') {
-        this.hideBlockOptions();
-      }
+    this.trigger.forEach((item, index) => {
+      item.addEventListener('click', event => {
+        if (event.currentTarget === this.trigger[index] && getComputedStyle(event.currentTarget.nextElementSibling).display === 'none') {
+          event.currentTarget.nextElementSibling.style.display = 'flex';
+          this.arrow[index].classList.add(this.arrowActiveClass);
+        } else if (event.currentTarget === this.trigger[index] && getComputedStyle(event.currentTarget.nextElementSibling).display === 'flex') {
+          event.currentTarget.nextElementSibling.style.display = 'none';
+          this.arrow[index].classList.remove(this.arrowActiveClass);
+        }
+      });
     });
     this.triggerItems.forEach(item => {
       item.addEventListener('click', event => {
-        this.hideBlockOptions();
-        this.elementText.textContent = event.target.textContent;
+        const select = item.parentElement.previousElementSibling.firstElementChild.nextElementSibling;
+        select.textContent = event.target.textContent;
+        select.nextElementSibling.classList.remove(this.arrowActiveClass);
+        event.currentTarget.parentNode.style.display = 'none';
       });
     });
   }

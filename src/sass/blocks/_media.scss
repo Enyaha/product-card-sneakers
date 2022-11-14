@@ -97,7 +97,16 @@
             max-width: 19rem;
             margin-left: 10px;
         }
-        &__add-count, &__add-size {
+        &__add {
+            &-count, &__add-size {
+                width: 145px;
+            }
+            &-select {
+                font-size: .75rem;
+            }
+        }
+        &__add
+        &__count {
             width: 145px;
         }
         &__table-size_desktop {
@@ -248,6 +257,12 @@
                     font-size: .6rem;
                 }
             }
+        }
+        &__size {
+            top: 34px;
+        }
+        &__count {
+            top: 34px;
         }
         &__reviews {
             margin-top: 2rem;

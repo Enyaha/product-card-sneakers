@@ -167,9 +167,7 @@
             right: 1rem;
             transform: translateY(-50%);
             transform-origin: 50% 25%;
-            transition: all .4;
             &_active {
-                transition: all .4;
                 transform: rotate(180deg);
                 transform-origin: 50% 25%;
             }
@@ -204,9 +202,6 @@
         border-top: 1px solid #e8e8e8;
         border-left: 1px solid #e8e8e8;
         z-index: 1;
-        &_active {
-            display: flex;
-        }
         &-item {
             display: flex;
             justify-content: center;
@@ -237,9 +232,6 @@
         border-top: 1px solid #e8e8e8;
         border-left: 1px solid #e8e8e8;
         z-index: 1;
-        &_active {
-            display: flex;
-        }
         &-item {
             display: flex;
             justify-content: flex-start;

@@ -2,47 +2,39 @@ export default class SelectedProduct {
     constructor({
         trigger, 
         arrow, 
-        blockOptions, 
         arrowActiveClass = '', 
-        blockOptionsActiveClass = '',
         triggerItems,
-        elementText,
-        index = null,
         }) {
-        this.trigger = document.querySelector(trigger);
+        this.trigger = document.querySelectorAll(trigger);
         this.arrow = document.querySelectorAll(arrow);
-        this.blockOptions = document.querySelector(blockOptions);
         this.arrowActiveClass = arrowActiveClass;
-        this.blockOptionsActiveClass = blockOptionsActiveClass;
         this.triggerItems = document.querySelectorAll(triggerItems);
-        this.elementText = document.querySelector(elementText);
-        this.index = index;
-    }
-
-    showBlockOptions() {
-        this.arrow[this.index].classList.add(this.arrowActiveClass);
-        this.blockOptions.classList.add(this.blockOptionsActiveClass);
-    }
-
-    hideBlockOptions() {
-        this.arrow[this.index].classList.remove(this.arrowActiveClass);
-        this.blockOptions.classList.remove(this.blockOptionsActiveClass);
     }
 
     init() {
-        this.trigger.addEventListener('click', () => {
-            if (getComputedStyle(this.blockOptions).display == 'none') {
-                this.showBlockOptions();
-            } else if (getComputedStyle(this.blockOptions).display == 'flex') {
-                this.hideBlockOptions();
-            }
+        this.trigger.forEach((item, index) => {
+            item.addEventListener('click', event => {
+                if (event.currentTarget === this.trigger[index] && 
+                    getComputedStyle(event.currentTarget.nextElementSibling).display === 'none') {
+
+                    event.currentTarget.nextElementSibling.style.display = 'flex';
+                    this.arrow[index].classList.add(this.arrowActiveClass);
+                } else if (event.currentTarget === this.trigger[index] && 
+                    getComputedStyle(event.currentTarget.nextElementSibling).display === 'flex') {
+
+                    event.currentTarget.nextElementSibling.style.display = 'none';
+                    this.arrow[index].classList.remove(this.arrowActiveClass);
+                }
+            });
         });
 
         this.triggerItems.forEach(item => {
-            item.addEventListener('click', (event)=> {
-                this.hideBlockOptions();
+            item.addEventListener('click', event => {
+                const select = item.parentElement.previousElementSibling.firstElementChild.nextElementSibling;
 
-                this.elementText.textContent = event.target.textContent;
+                select.textContent = event.target.textContent;
+                select.nextElementSibling.classList.remove(this.arrowActiveClass);
+                event.currentTarget.parentNode.style.display = 'none';
             });
         });
     }
